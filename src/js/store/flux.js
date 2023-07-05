@@ -1,18 +1,21 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			personajes: [],
+			planetas: [],
+			vehiculos: []
+			// demo: [
+			// 	{
+			// 		title: "FIRST",
+			// 		background: "white",
+			// 		initial: "white"
+			// 	},
+			// 	{
+			// 		title: "SECOND",
+			// 		background: "white",
+			// 		initial: "white"
+			// 	}
+			// ]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,7 +40,46 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+
+			getPersonajes() {
+				fetch("https://www.swapi.tech/api/people")
+				.then(res => res.json())
+				.then(data => {
+					setStore({
+						personajes: data.results
+					})
+				})
+				.catch(error => {
+					console.log(error);
+				});
+			},
+
+			getPlanetas() {
+				fetch("https://www.swapi.tech/api/planets")
+				.then(res => res.json())
+				.then(data => {
+					setStore({
+						planetas: data.results
+					})
+				})
+				.catch(error => {
+					console.log(error);
+				});
+			},
+
+			getVehicles() {
+				fetch("https://www.swapi.tech/api/vehicles")
+				.then(res => res.json())
+				.then(data => {
+					setStore({
+						vehiculos: data.results
+					})
+				})
+				.catch(error => {
+					console.log(error);
+				});
+			},
 		}
 	};
 };
