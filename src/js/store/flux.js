@@ -80,6 +80,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error);
 				});
 			},
+
+			async getDetailsPeople(uid){
+				let response = await fetch("https://www.swapi.tech/api/people/" + uid )
+				let data = await response.json()
+				return data.result
+			}
 		}
 	};
 };
