@@ -85,6 +85,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let response = await fetch("https://www.swapi.tech/api/people/" + uid )
 				let data = await response.json()
 				return data.result
+			},
+
+			async getDetailsPlanets(uid){
+				let response = await fetch("https://www.swapi.tech/api/planets/" + uid )
+				let data = await response.json()
+				return data.result
+			},
+
+			async getDetailsPlanets(uid){
+				let response = await fetch("https://www.swapi.tech/api/vehicles/" + uid )
+				let data = await response.json()
+				return data.result
 			}
 		}
 	};

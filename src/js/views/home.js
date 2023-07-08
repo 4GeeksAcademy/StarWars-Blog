@@ -4,6 +4,7 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { CardPeople } from "../component/cardPeople";
 import { CardPlanets } from "../component/cardPlanets";
+import { CardVehicles } from "../component/cardVehicles";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -17,7 +18,7 @@ export const Home = () => {
 	return (
 
 		<> 
-			<div className="container">
+			<div className="container my-4">
 				<h2>Personajes</h2>
 				<hr></hr>
 				<div className="row justify-content-center">
@@ -27,7 +28,7 @@ export const Home = () => {
 				</div>
 			</div>
 
-			<div className="container">
+			<div className="container mb-4">
 				<h2>Planetas</h2>
 				<hr></hr>
 				<div className="row justify-content-center">
@@ -37,12 +38,12 @@ export const Home = () => {
 				</div>
 			</div>
 
-			<div className="container">
+			<div className="container mb-4">
 				<h2>Vehiculos</h2>
 				<hr></hr>
 				<div className="row justify-content-center">
 					{store.vehiculos.map((item, index) => (
-						<CardPlanets item={item} key={index} />
+						<CardVehicles item={item} key={index} />
 					))}
 				</div>
 			</div>

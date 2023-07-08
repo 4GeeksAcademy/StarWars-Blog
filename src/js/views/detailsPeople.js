@@ -23,7 +23,9 @@ export const DetailsPeople = () => {
 
     return (
        <>
+            <div className="row dflex justify-content-center my-5">
             <CardDetailsPeople personaje ={personaje}/>
+            </div>
        </>
     )
 }
