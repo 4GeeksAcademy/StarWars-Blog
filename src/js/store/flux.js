@@ -3,7 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			personajes: [],
 			planetas: [],
-			vehiculos: []
+			vehiculos: [],
+			favoritos: []
 			// demo: [
 			// 	{
 			// 		title: "FIRST",
@@ -93,10 +94,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return data.result
 			},
 
-			async getDetailsPlanets(uid){
+			async getDetailsVehicles(uid){
 				let response = await fetch("https://www.swapi.tech/api/vehicles/" + uid )
 				let data = await response.json()
 				return data.result
+			},
+
+			addToFavorites: newItem => {
+
+				const auxStore = getStore();
+				
+				console.log(auxStore.favorites.find(item => item.name == newItem.name))
+
+				if (!auxStore.favorites.find(item => item.name == newItem.name)) {
+					setStore({ favorites: [newItem, ...auxStore.favorites] });
+				}
+
+			},
+			removeProductFromCart: targetProduct => {
+				const store = getStore();
+				setStore({ favorites: store.favorites.filter(items => items.id != targetProduct.id) });
 			}
 		}
 	};

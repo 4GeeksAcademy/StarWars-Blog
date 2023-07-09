@@ -14,14 +14,14 @@ export const Home = () => {
 		actions.getPlanetas();
 		actions.getVehicles();
 	}, []);
-	
+
 	return (
 
-		<> 
+		<>
 			<div className="container my-4">
-				<h2>Personajes</h2>
-				<hr></hr>
-				<div className="row justify-content-center">
+				<h2 className="text-white">Personajes</h2>
+				<hr className="text-white"></hr>
+				<div className="row flex-nowrap overflow-auto mx-2">
 					{store.personajes.map((item, index) => (
 						<CardPeople item={item} key={index} />
 					))}
@@ -29,9 +29,9 @@ export const Home = () => {
 			</div>
 
 			<div className="container mb-4">
-				<h2>Planetas</h2>
-				<hr></hr>
-				<div className="row justify-content-center">
+				<h2 className="text-white">Planetas</h2>
+				<hr className="text-white"></hr>
+				<div className="row flex-nowrap overflow-auto mx-2">
 					{store.planetas.map((item, index) => (
 						<CardPlanets item={item} key={index} />
 					))}
@@ -39,14 +39,15 @@ export const Home = () => {
 			</div>
 
 			<div className="container mb-4">
-				<h2>Vehiculos</h2>
-				<hr></hr>
-				<div className="row justify-content-center">
+				<h2 className="text-white">Vehiculos</h2>
+				<hr className="text-white"></hr>
+				<div className="row flex-nowrap overflow-auto mx-2">
 					{store.vehiculos.map((item, index) => (
 						<CardVehicles item={item} key={index} />
 					))}
 				</div>
 			</div>
 		</>
-	
-)};
+
+	)
+};
