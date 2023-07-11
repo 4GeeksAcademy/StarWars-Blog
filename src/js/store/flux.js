@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			personajes: [],
 			planetas: [],
 			vehiculos: [],
-			favoritos: []
+			favorites: []
 			// demo: [
 			// 	{
 			// 		title: "FIRST",
@@ -103,17 +103,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addToFavorites: newItem => {
 
 				const auxStore = getStore();
-				
-				console.log(auxStore.favorites.find(item => item.name == newItem.name))
 
 				if (!auxStore.favorites.find(item => item.name == newItem.name)) {
 					setStore({ favorites: [newItem, ...auxStore.favorites] });
 				}
-
 			},
-			removeProductFromCart: targetProduct => {
+
+			removeItem: item => {
 				const store = getStore();
-				setStore({ favorites: store.favorites.filter(items => items.id != targetProduct.id) });
+				setStore({ favorites: store.favorites.filter(items => items.uid != item.uid) });
 			}
 		}
 	};
